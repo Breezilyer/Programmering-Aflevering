@@ -1,4 +1,4 @@
-﻿namespace Aflevering1;
+﻿namespace Aflevering1; // Emil Peter Lykke Lindquist
 
 using System.ComponentModel.Design;
 using static System.Console; // Den her linje er for at man ikke behøver at skrive "Console" heletiden, så du initialisere det på hele projekted
