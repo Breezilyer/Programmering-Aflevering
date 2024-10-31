@@ -9,9 +9,10 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
     static string[] itemName = new string[10];
     static int id;
 
-    // Her indsætter jeg admin login, for at man kan login og indsætte vare og priser.
+    // Her indsætter jeg en global admin login string, for at man kan login og indsætte vare og priser.
     static string admin = "admin";
     static string adminPassword = "secret";
+    // Her laver jeg en global bool. Hvis du er loggedIn er den true, ellers ikke er den false
     static bool loggedIn = false;
 
     static void Main(string[] args)
