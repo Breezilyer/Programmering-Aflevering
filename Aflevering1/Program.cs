@@ -1,4 +1,4 @@
-﻿namespace Aflevering2
+﻿namespace Aflevering1
 {
     internal class Program
     {

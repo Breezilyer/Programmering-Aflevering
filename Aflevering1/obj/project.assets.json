@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emilp\\Desktop\\Programs\\Aflevering1\\Aflevering1.csproj",
+      "projectUniqueName": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering1\\Aflevering1.csproj",
       "projectName": "Aflevering1",
-      "projectPath": "C:\\Users\\emilp\\Desktop\\Programs\\Aflevering1\\Aflevering1.csproj",
+      "projectPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering1\\Aflevering1.csproj",
       "packagesPath": "C:\\Users\\emilp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emilp\\Desktop\\Programs\\Aflevering1\\obj\\",
+      "outputPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emilp\\AppData\\Roaming\\NuGet\\NuGet.Config",
