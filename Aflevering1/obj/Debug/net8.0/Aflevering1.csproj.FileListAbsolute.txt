@@ -1,0 +1,15 @@
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\bin\Debug\net8.0\Aflevering1.exe
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\bin\Debug\net8.0\Aflevering1.deps.json
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\bin\Debug\net8.0\Aflevering1.runtimeconfig.json
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\bin\Debug\net8.0\Aflevering1.dll
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\bin\Debug\net8.0\Aflevering1.pdb
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.AssemblyInfoInputs.cache
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.AssemblyInfo.cs
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.csproj.CoreCompileInputs.cache
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.sourcelink.json
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.dll
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\refint\Aflevering1.dll
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.pdb
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\Aflevering1.genruntimeconfig.cache
+C:\Users\emilp\Desktop\Programmering-Aflevering\Aflevering1\obj\Debug\net8.0\ref\Aflevering1.dll
