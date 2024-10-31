@@ -17,7 +17,6 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
     static void Main(string[] args)
     {
         menu();
-        ReadKey();
     }
 
     static void menu()
@@ -94,6 +93,9 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 if (loggedIn != true)
                 {
                     WriteLine("You're not logged in!");
+                    ReadKey();
+                    Clear();
+                    menu();
                 }
 
                 // Her for du alle de id'er du kan ændre at vide. Hvis varePris = 0 er varen ikke ændret.
@@ -128,6 +130,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 } else
                 {
                     WriteLine("Already assigned item to this id");
+                    input = "2";
                 } 
 
                 ReadKey();
