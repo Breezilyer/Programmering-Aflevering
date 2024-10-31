@@ -99,6 +99,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                     menu();
                 }
 
+
                 // Her for du alle de id'er du kan ændre at vide. Hvis varePris = 0 er varen ikke ændret.
                 WriteLine("These are all the available items to add:\n");
                 for (int i = 0; i < itemPrice.Length; i++)
@@ -161,6 +162,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
 
             case "q":
                 WriteLine($"You chose {options[4]}");
+                ReadKey();
                 break;
 
             default:
