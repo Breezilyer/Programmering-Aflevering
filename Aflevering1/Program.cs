@@ -1,4 +1,6 @@
 ﻿namespace Aflevering1;
+
+using System.ComponentModel.Design;
 using static System.Console; // Den her linje er for at man ikke behøver at skrive "Console" heletiden, så du initialisere det på hele projekted
     internal class Program
 {
@@ -6,9 +8,9 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
     static int[] itemPrice = new int[10];
     static string[] itemName = new string[10];
 
-    // Her indsætter jeg admin login, for at man kan login og indsætter vare og priser.
+    // Her indsætter jeg admin login, for at man kan login og indsætte vare og priser.
     static string admin = "admin";
-    static string password = "password";
+    static string adminPassword = "password";
 
     static void Main(string[] args)
     {
@@ -36,7 +38,26 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
         switch (input.ToLower()) // ToLower() er til at man endten kan skrive lille q eller stort Q
         {
             case "1":
-                WriteLine($"You chose {options[0]}");
+                Clear(); // Dette ryder hele konsolen
+
+                // Her laver jeg ReadLine til både Username og Password
+                Write("Username: ");
+                string username = Console.ReadLine()!;
+                Write("Password: ");
+                string password = Console.ReadLine()!;
+
+                // Her laver jeg et if statement
+                // Hvis brugerens input til username er som variablen admin og (Som vises med &&) det samme password
+                if (username == admin && password == adminPassword)
+                {
+                    // Hvis ja, har du logged ind
+                    Clear();
+                    Write("You logged in succesfully!");
+                } else
+                {
+                    // ellers det ikke passer, har du ikke logged ind
+                    Write("Username or Password does not match the login.");
+                }
                 break;
 
             case "2":
