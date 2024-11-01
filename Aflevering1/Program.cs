@@ -4,25 +4,27 @@ using System.ComponentModel.Design;
 using static System.Console; // Den her linje er for at man ikke behøver at skrive "Console" heletiden, så du initialisere det på hele projekted
     internal class Program
 {
-    // her indsætter jeg de tabeller med varePris og vareNavn. Der skal være 10 hver som opgave siger.
+    // her indsætter jeg de tabeller med varePris og vareNavn. Der skal være 10 hver som opgaven siger.
     static int[] itemPrice = new int[10];
     static string[] itemName = new string[10];
+    static int[] Basket = new int[10];
     static int id;
 
     // Her indsætter jeg en global admin login string, for at man kan login og indsætte vare og priser.
     static string admin = "admin";
     static string adminPassword = "secret";
     // Her laver jeg en global bool. Hvis du er loggedIn er den true, ellers ikke er den false
-    static bool loggedIn = false;
+    static bool loggedIn = true;
 
     static void Main(string[] args)
     {
+        // her sætter jeg min metode ind
         menu();
     }
 
     static void menu()
     {
-        // Her har jeg en bool som endten kan være true eller false. Hvis logged ind ikke er false, er du logged ind
+        // Her har jeg en bool som endten kan være true eller false. Hvis loggedInd ikke er false, er du logged ind
         if (loggedIn != false)
         {
             WriteLine("Logged in!\n");
@@ -31,7 +33,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
         // Her laver jeg en tabel hvor jeg har alle valg mulighedderne.
         string[] options = { "Login", "Add item", "Show list", "Order item", "Exit" };
 
-        // Her laver jeg et for loop til at WriteLine alle ordene i min tabel
+        // Her laver jeg et forloop til at WriteLine alle ordene i min tabel
         for (int i = 0; i < 4; i++)
         {
             WriteLine($"{i + 1}: {options[i]}");
@@ -67,7 +69,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 string password = Console.ReadLine()!;
 
                 // Her laver jeg et if statement
-                // Hvis brugerens input til username er som variablen admin og (Som vises med &&) det samme password
+                // Hvis brugerens input til username er som stringen admin og (Som vises med &&) det samme password
                 if (username == admin && password == adminPassword)
                 {
                     // Hvis ja, har du logged ind
@@ -78,7 +80,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                     loggedIn = true;
                 } else
                 {
-                    // ellers det ikke passer, har du ikke logged ind
+                    // ellers det ikke passer, kan du ikke logged ind
                     Write("Username or Password does not match the login.");
                 }
                 // Her ryder jeg konsolen og går tilbage til start
@@ -106,6 +108,7 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 {
                     if (itemPrice[i] == 0)
                     {
+                        // Jeg siger i + 1 fordi et array starter ved nul, så ved at sætte + 1 starter dit Write med 1
                         Write($"|{i + 1}|");
                     }
                 }
@@ -114,27 +117,30 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 Write("\n\nPick id: ");
                 id = Convert.ToInt32(ReadLine()!);
                 // jeg siger id - 1 fordi at en array starter ved 0. Men vi har en tabel der går fra 1 til 10. Så det er et work around for at kunne vælge den rigtige tabel
-                id -= 1;
+                id--;
 
                 Clear();
 
+                // Her vælger du og indsætter dit vareNavn og din varePris
                 if (itemPrice[id] == 0)
                 {
                     Write("Item name: ");
-                    string name = Console.ReadLine()!;
+                    string idName = Console.ReadLine()!;
     
                     Write("Item price: ");
                     int price = Convert.ToInt32(ReadLine()!);
 
-                    itemName[id] = name;
+                    // Efter brugeren har inputtet vareNavn og varePris, sætter du de variabler ind på id'ets plads
+                    itemName[id] = idName;
                     itemPrice[id] = price;
                     WriteLine("Added item succesfully!");
                 } else
                 {
+                    // Hvis du har valgt et id som ikke vises på konsolen, er den allerede ændret
                     WriteLine("Already assigned item to this id");
-                    input = "2";
                 } 
 
+                // Her ryder jeg konsolen og går tilbage til start
                 ReadKey();
                 Clear();
                 menu();
@@ -157,17 +163,59 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 break;
 
             case "4":
-                WriteLine($"You chose {options[3]}");
+                Clear();
+                // Her laver jeg et for loop for at indskrive alle vareNavn og varePris
+                // \n er for at gå på næste linje
+                for (int i = 0; i < itemName.Length; i++)
+                {
+                    WriteLine($"{i + 1}: \nItem name: {itemName[i]}\nItem price: {itemPrice[i]}kr\n");
+                }
+
+                // Her får du brugeren til at vælge et vare id
+                Write("Pick id to purchase: ");
+                id = Convert.ToInt32(ReadLine())!;
+
+                Clear();
+
+                // Her er der et if statement til at tjekke om varen kan købes. Hvis varen ikke har en pris kan den ikke købes
+                if (itemPrice[id - 1] > 0)
+                {
+                    WriteLine($"You've picked: {itemName[id - 1]}");
+                } else
+                {
+                    // Hvis varen ikke har et id kan du ikke vælge den
+                    Clear();
+                    Write("Item not available");
+                    ReadKey();
+                    Clear();
+                    menu();
+                }
+
+                // Her får du brugeren til at inputte det antal af varen de ville købe
+                Write("How many would you like to purchase?: ");
+                int amount = Convert.ToInt32(ReadLine()!);
+
+                // Hvilken navn det er købt til
+                Write("Who is this order assigned to?: ");
+                string name = ReadLine()!;
+                Clear();
+
+                // Her siger du tak til brugeren
+                Write($"Thank you for your purchase {name}");
+                // Her viser du brugeren hvad de har købt. Grunden til at det er id - 1 er fordi at en array starter ved 0. Men vi har plussede det med en for at vise det pænt på konsolen
+                Write($"\nYou've bought: {itemName[id - 1]}");
+                // Her ganger du så din pris med det antal af varen brugeren har inputtet
+                Write($"\nYour total price is: {itemPrice[id - 1] * amount}");
+                // Dette er noget jeg fandt på w3schools. Det er en funktion der viser den rigtige tid på din pc
+                string tid = DateTime.Now.ToLongTimeString();
+                Write($"\nTime of purchase: ({tid})");
+
+                ReadKey();
+                Clear();
+                menu();
                 break;
 
             case "q":
-                WriteLine($"You chose {options[4]}");
-                ReadKey();
-                break;
-
-            default:
-                Clear();
-                menu();
                 break;
         }
         
