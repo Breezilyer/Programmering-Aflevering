@@ -7,14 +7,13 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
     // her indsætter jeg de tabeller med varePris og vareNavn. Der skal være 10 hver som opgaven siger.
     static int[] itemPrice = new int[10];
     static string[] itemName = new string[10];
-    static int[] Basket = new int[10];
     static int id;
 
     // Her indsætter jeg en global admin login string, for at man kan login og indsætte vare og priser.
     static string admin = "admin";
     static string adminPassword = "secret";
     // Her laver jeg en global bool. Hvis du er loggedIn er den true, ellers ikke er den false
-    static bool loggedIn = true;
+    static bool loggedIn = false;
 
     static void Main(string[] args)
     {
@@ -208,7 +207,8 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 Write($"\nYour total price is: {itemPrice[id - 1] * amount}");
                 // Dette er noget jeg fandt på w3schools. Det er en funktion der viser den rigtige tid på din pc
                 string tid = DateTime.Now.ToLongTimeString();
-                Write($"\nTime of purchase: ({tid})");
+                string dato = DateTime.Now.ToLongDateString();
+                Write($"\nTime of purchase: ({dato})({tid})");
 
                 ReadKey();
                 Clear();
@@ -216,6 +216,9 @@ using static System.Console; // Den her linje er for at man ikke behøver at skr
                 break;
 
             case "q":
+                break;
+
+            default:
                 break;
         }
         
