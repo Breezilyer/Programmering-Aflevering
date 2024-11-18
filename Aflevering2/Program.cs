@@ -3,7 +3,7 @@ namespace BankProject
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) // Emil Peter Lykke Lindquist
         {
             Bank bank = new Bank();
             menu(bank);
