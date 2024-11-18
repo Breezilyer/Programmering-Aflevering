@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "lJUgljBBPgA=",
   "success": true,
   "projectFilePath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering2\\Aflevering2.csproj",
+=======
+  "dgSpecHash": "i9Z8470ycoY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-aflevering\\Aflevering2\\Aflevering2.csproj",
+>>>>>>> refs/remotes/origin/main
   "expectedPackageFiles": [],
   "logs": []
 }
