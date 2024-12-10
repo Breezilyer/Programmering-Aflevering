@@ -13,19 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering2\\Aflevering2.csproj",
+      "projectUniqueName": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering2\\Aflevering2.csproj",
       "projectName": "Aflevering2",
-      "projectPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering2\\Aflevering2.csproj",
+      "projectPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering2\\Aflevering2.csproj",
       "packagesPath": "C:\\Users\\emilp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering2\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-aflevering\\Aflevering2\\Aflevering2.csproj",
-      "projectName": "Aflevering2",
-      "projectPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-aflevering\\Aflevering2\\Aflevering2.csproj",
-      "packagesPath": "C:\\Users\\emilp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-aflevering\\Aflevering2\\obj\\",
->>>>>>> refs/remotes/origin/main
+      "outputPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emilp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -75,11 +67,7 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
->>>>>>> refs/remotes/origin/main
       }
     }
   }

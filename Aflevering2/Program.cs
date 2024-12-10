@@ -1,17 +1,25 @@
-﻿using static System.Console;
-namespace BankProject
+﻿using System;
+using static System.Console;
+namespace Aflevering2Recap
 {
     internal class Program
     {
-        static void Main(string[] args) // Emil Peter Lykke Lindquist
+        static bool menuRunning = true;
+        static void Main(string[] args)
         {
             Bank bank = new Bank();
+
+            Customer customer = new Customer("Emil", "090705-5779", "Alleen 6, 6000");
+            bank.Customers.Add(customer);
+
+            Employee employee = new Employee("Bjørn", "123456-7890", "32.000");
+            bank.Employees.Add(employee);
             menu(bank);
         }
 
         static void menu(Bank bank)
         {
-            bool menuRunning = true;
+            Clear();
             while (menuRunning)
             {
                 string[] options = { "Add Customer: 1", "Add Employee: 2", "Show List: 3", "Change address: 4", "Change Pay Check: 5", "Exit : q" };
@@ -19,8 +27,10 @@ namespace BankProject
                 {
                     WriteLine(option);
                 }
-                string opt = ReadLine()!;
-                switch (opt)
+
+                string optionInput = ReadLine()!;
+
+                switch (optionInput)
                 {
                     case "1":
                         addCustomer(bank);
@@ -43,160 +53,161 @@ namespace BankProject
                 }
             }
         }
+
         static void addCustomer(Bank bank)
         {
             Clear();
             Write("Input name: ");
             string name = ReadLine()!;
-            Write("Input CPR-NR: ");
-            string cprnr = ReadLine()!;
-            Write("Input address: ");
-            string address = ReadLine()!;
+            Write("\nInput CPR-nr (Example: 000000-0000): ");
+            string cpr = ReadLine()!;
+            Write("\nInput adress: ");
+            string adress = ReadLine()!;
 
-            Customer customer = new Customer(name, cprnr, address);
+            Customer customer = new Customer(name, cpr, adress);
             bank.Customers.Add(customer);
-            WriteLine("Added Customer!");
+            WriteLine("Customer added!");
             ReadLine();
-            Clear();
             menu(bank);
         }
         static void addEmployee(Bank bank)
         {
             Clear();
-
             Write("Input name: ");
             string name = ReadLine()!;
-            Write("Input CPR-NR: ");
-            string cprnr = ReadLine()!;
-            Write("Input Pay Check: ");
-            string pCheck = ReadLine()!;
+            Write("\nInput CPR-nr (Example: 000000-0000): ");
+            string cpr = ReadLine()!;
+            Write("\nInput Pay Check: ");
+            string payCheck = ReadLine()!;
 
-            Employee employee = new Employee(name, cprnr, pCheck);
+            Employee employee = new Employee(name, cpr, payCheck);
             bank.Employees.Add(employee);
-            WriteLine("Added Employee!");
-
+            WriteLine("Employee added!");
             ReadLine();
-            Clear();
             menu(bank);
         }
         static void showList(Bank bank)
         {
             Clear();
-
-            WriteLine("Every Customer:\n");
+            WriteLine("All Customers:");
             foreach (var customer in bank.Customers)
             {
                 customer.showInfo();
+                WriteLine();
             }
 
-            WriteLine("\nEvery Employee:\n");
+            WriteLine("All Employees:");
             foreach (var employee in bank.Employees)
             {
                 employee.showInfo();
+                WriteLine();
             }
             ReadLine();
-            Clear();
             menu(bank);
         }
+
         static void setAdress(Bank bank)
         {
             Clear();
-            Write("Input which CPR-NR to change address: ");
-            string cprnr = ReadLine()!;
+            Write("Enter CPR-nr: ");
+            string cpr = ReadLine()!;
 
-            var address = bank.Customers.FirstOrDefault(customer => customer.cprNr == cprnr);
-
-            if (address != null)
+            foreach (var customer in bank.Customers)
             {
-                Write("Input new address: ");
-                string newAddress = ReadLine()!;
-                address.setAdress(newAddress);
-                WriteLine("Succefully changed address");
-            }
-            else
-            {
-                WriteLine("Could not find matching CPR-NR");
+                if (customer.cpr == cpr)
+                {
+                    WriteLine("Input new Adress: ");
+                    string adress = ReadLine()!;
+                    customer.setAdress(adress);
+                    WriteLine("Succesfully changed adress!");
+                }
+                else
+                {
+                    WriteLine("Couldn't find that person!");
+                }
             }
             ReadLine();
-            Clear();
             menu(bank);
         }
         static void setPayCheck(Bank bank)
         {
             Clear();
+            Write("Enter CPR-nr: ");
+            string cpr = ReadLine()!;
 
-            Write("Input which CPR-NR to change address: ");
-            string cprnr = ReadLine()!;
-
-            var pcheck = bank.Employees.FirstOrDefault(employee => employee.cprNr == cprnr);
-
-            if (pcheck != null)
+            foreach (var employee in bank.Employees)
             {
-                Write("Input new Pay Check: ");
-                string newPCheck = ReadLine()!;
-                pcheck.setPaycheck(newPCheck);
-                WriteLine("Succesfully changed Pay Check");
-            }
-            else
-            {
-                WriteLine("Could not find matching CPR-NR");
+                if (employee.cpr == cpr)
+                {
+                    WriteLine("Input new Pay Check: ");
+                    string payCheck = ReadLine()!;
+                    employee.setPayCheck(payCheck);
+                    WriteLine("Succesfully changed Pay Check!");
+                }
+                else
+                {
+                    WriteLine("Couldn't find that person!");
+                }
             }
             ReadLine();
-            Clear();
             menu(bank);
         }
     }
 
     public class Person
     {
-        public string Name { get; set; }
-        public string cprNr { get; set; }
-        public Person(string name, string cprnr)
+        public string name { get; set; }
+        public string cpr { get; set; }
+        public Person(string name, string cpr)
         {
-            Name = name;
-            cprNr = cprnr;
+            this.name = name;
+            this.cpr = cpr;
         }
         public virtual void showInfo()
         {
-            WriteLine($"Name: {Name} \nCPR-NR: {cprNr}");
+            WriteLine($"Name: {name}\nCPR-nr: {cpr}");
         }
     }
+
     public class Customer : Person
     {
-        public string Adress { get; set; }
-        public Customer(string name, string cprnr, string adress) : base(name, cprnr)
+        public string adress { get; set; }
+        public Customer(string name, string cpr, string adress) : base(name, cpr)
         {
-            Adress = adress;
+            this.adress = adress;
         }
+
         public override void showInfo()
         {
             base.showInfo();
-            WriteLine($"Adress: {Adress}");
+            WriteLine($"Adress: {adress}");
         }
+
         public void setAdress(string newAdress)
         {
-            Adress = newAdress;
+            adress = newAdress;
         }
     }
+
     public class Employee : Person
     {
-        public string pCheck { get; set; }
-
-        public Employee(string name, string cprnr, string pcheck) : base(name, cprnr)
+        public string payCheck { get; set; }
+        public Employee(string name, string cpr, string payCheck) : base(name, cpr)
         {
-            pCheck = pcheck;
+            this.payCheck = payCheck;
         }
+
         public override void showInfo()
         {
             base.showInfo();
-            WriteLine($"Pay check: {pCheck}");
+            WriteLine($"Pay Check: {payCheck}kr");
         }
-        public void setPaycheck(string newPayCheck)
+        public void setPayCheck(string newPayCheck)
         {
-            pCheck = newPayCheck;
+            payCheck = newPayCheck;
         }
-
     }
+
     public class Bank
     {
         public List<Customer> Customers;
