@@ -1,6 +1,7 @@
 ﻿using static System.Console;
 namespace BankProject
 {
+    static bool menuRunning = true;
     internal class Program
     {
         static void Main(string[] args) // Emil Peter Lykke Lindquist
@@ -11,7 +12,6 @@ namespace BankProject
 
         static void menu(Bank bank)
         {
-            bool menuRunning = true;
             while (menuRunning)
             {
                 string[] options = { "Add Customer: 1", "Add Employee: 2", "Show List: 3", "Change address: 4", "Change Pay Check: 5", "Exit : q" };
