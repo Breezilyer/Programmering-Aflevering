@@ -2,18 +2,12 @@
 using static System.Console;
 namespace Aflevering2Recap
 {
-    internal class Program
+    internal class Program // Emil Peter Lykke Lindquist
     {
         static bool menuRunning = true;
         static void Main(string[] args)
         {
             Bank bank = new Bank();
-
-            Customer customer = new Customer("Emil", "090705-5779", "Alleen 6, 6000");
-            bank.Customers.Add(customer);
-
-            Employee employee = new Employee("Bjørn", "123456-7890", "32.000");
-            bank.Employees.Add(employee);
             menu(bank);
         }
 
