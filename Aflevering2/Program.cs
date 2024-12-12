@@ -177,7 +177,7 @@ namespace Aflevering2Recap
         }
     }
 
-    // Her har jeg en Person klasse. Dette er moder objektet, som skal håndtere navne og cpr-numre.
+    // Her har jeg en Person klasse. Dette er moder klassen, som skal håndtere navne og cpr-numre.
     public class Person
     {
         // Her har jeg lavet 2 variabler, name og cpr. De er sat til get; set;. Som betyder at du kan kalde den.
@@ -213,7 +213,6 @@ namespace Aflevering2Recap
 
         // Her har jeg også en showInfo metode.
         // Læg mærke til at den er sat til override. Det betyder at du tager en allerede eksisterende metode, og ændre på den.
-        // Er for træt til at skrive resten nu. Skriver videre senere.
         public override void showInfo()
         {
             
