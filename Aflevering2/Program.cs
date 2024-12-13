@@ -1,22 +1,22 @@
 ﻿using System;
+// using static System.Console; er brugt her, så der ikke behøves at skrive Console.Write, Console.Read etc.
 using static System.Console;
 namespace Aflevering2Recap
 {
     internal class Program // Emil Peter Lykke Lindquist
     {
+        // Her har jeg 2 lister, som skal bruges til at holde information om "Customer", og "Employee".
+        static List<Customer> Customers = new List<Customer>();
+        static List<Employee> Employees = new List<Employee>();
         // Her laver jeg en bool som bruges til at se om menu'en køre. Hvis den er true, kører menu'en. Hvis ikke skal den lukkes.
         static bool menuRunning = true;
         static void Main(string[] args)
         {
-            // Her kalder jeg mit objekt
-            Bank bank = new Bank();
-            // Her kalder jeg min metode menu. Den har paremeteren "bank" fordi det skal der bruges til at initialisere de andre metoder til at have objektet.
-            // Bank er et objekt som håndtere listerne til "Customer" og "Employee".
-            menu(bank);
+            // Her kalder jeg min metode menu.
+            menu();
         }
         // Her har jeg lavet en menu metode, som håndtere alle de valg muligheder brugeren kan vælge.
-        // Den har fået parameter objektet bank.
-        static void menu(Bank bank)
+        static void menu()
         {
             // Jeg clear() her fordi så konsolen er rydet, og ser pænt ud.
             Clear();
@@ -37,19 +37,19 @@ namespace Aflevering2Recap
                 switch (optionInput)
                 {
                     case "1":
-                        addCustomer(bank);
+                        addCustomer();
                         break;
                     case "2":
-                        addEmployee(bank);
+                        addEmployee();
                         break;
                     case "3":
-                        showList(bank);
+                        showList();
                         break;
                     case "4":
-                        setAdress(bank);
+                        setAdress();
                         break;
                     case "5":
-                        setPayCheck(bank);
+                        setPayCheck();
                         break;
                     case "q":
                         menuRunning = false;
@@ -59,7 +59,7 @@ namespace Aflevering2Recap
         }
 
         // Her har jeg lavet en "addCustomer" metode. Som håndtere at kunne tilføje "Customers".
-        static void addCustomer(Bank bank)
+        static void addCustomer()
         {
             // Clear for at ryde konsolen.
             Clear();
@@ -74,14 +74,14 @@ namespace Aflevering2Recap
             // Her kalder jeg objektet Customer. Hvor jeg har sat alle bruger inputtet ind i parameteren, for at initialisere dem ind.
             Customer customer = new Customer(name, cpr, adress);
             // Her bruges så bank objektet. Jeg kalder "Customers" listen, hvor jeg dernæst tilføjer den nye objekt "customer" ind i "Customers" listen.
-            bank.Customers.Add(customer);
+            Customers.Add(customer);
             // Dette er bare for at kunne verificere at Customeren er tilføjet til listen.
             WriteLine("Customer added!");
             ReadLine();
-            menu(bank);
+            menu();
         }
         // Her har jeg en addEmployee metode. Den gør næsten det samme som addCustomer. Men her putter jeg PayCheck ind i stedet for adresse.
-        static void addEmployee(Bank bank)
+        static void addEmployee()
         {
             Clear();
             Write("Input name: ");
@@ -92,18 +92,18 @@ namespace Aflevering2Recap
             string payCheck = ReadLine()!;
 
             Employee employee = new Employee(name, cpr, payCheck);
-            bank.Employees.Add(employee);
+            Employees.Add(employee);
             WriteLine("Employee added!");
             ReadLine();
-            menu(bank);
+            menu();
         }
-        static void showList(Bank bank)
+        static void showList()
         {
             Clear();
             WriteLine("All Customers:");
 
             // Her bruger jeg en foreach loop, for at kunne gå igennem alle de ting som er inde i Customers listen.
-            foreach (var customer in bank.Customers)
+            foreach (var customer in Customers)
             {
                 // Her bruger jeg en indbygget metode som er inde i min "Customer" objekt. Den forklares nede ved Person Objektet.
                 customer.showInfo();
@@ -111,17 +111,17 @@ namespace Aflevering2Recap
             }
             // Det samme er gjort her.
             WriteLine("All Employees:");
-            foreach (var employee in bank.Employees)
+            foreach (var employee in Employees)
             {
                 employee.showInfo();
                 WriteLine();
             }
             ReadLine();
-            menu(bank);
+            menu();
         }
 
         // Her har jeg en setAdress metode. Som håndtere at kunne ændre en adresse, ved at vælge en person, ved at skrive deres cpr-nummer.
-        static void setAdress(Bank bank)
+        static void setAdress()
         {
             Clear();
             // Her håndteres brugerinput.
@@ -129,7 +129,7 @@ namespace Aflevering2Recap
             string cpr = ReadLine()!;
 
             // Her bruger jeg en foreach loop, for at kunne gå igennem alle tingene inde i min Customers liste.
-            foreach (var customer in bank.Customers)
+            foreach (var customer in Customers)
             {
                 // Her bruges en if statement. Hvis der er et sted i min liste, som er det samme som bruger inputtet.
                 // Skal den gøre tingene inde i tuborgklammerne.
@@ -149,16 +149,16 @@ namespace Aflevering2Recap
                 }
             }
             ReadLine();
-            menu(bank);
+            menu();
         }
         // Det samme er gjort her nede som setAdress. Men i stedet for at ændre adressen, skal den ændre Employess PayCheck.
-        static void setPayCheck(Bank bank)
+        static void setPayCheck()
         {
             Clear();
             Write("Enter CPR-nr: ");
             string cpr = ReadLine()!;
 
-            foreach (var employee in bank.Employees)
+            foreach (var employee in Employees)
             {
                 if (employee.cpr == cpr)
                 {
@@ -173,7 +173,7 @@ namespace Aflevering2Recap
                 }
             }
             ReadLine();
-            menu(bank);
+            menu();
         }
     }
 
@@ -215,17 +215,17 @@ namespace Aflevering2Recap
         // Læg mærke til at den er sat til override. Det betyder at du tager en allerede eksisterende metode, og ændre på den.
         public override void showInfo()
         {
-            
             base.showInfo();
             WriteLine($"Adress: {adress}");
         }
-
+        // Her laver jeg en setAdress metode. Den gør sådan at jeg kan kalde den, og sætte en ny adresse ind i parameteren.
         public void setAdress(string newAdress)
         {
             adress = newAdress;
         }
     }
-
+    // Her har jeg en klasse som arver af Person også.
+    // Den er næsten ligesom Customer klassen, men i stedet for adresse, er det payCheck.
     public class Employee : Person
     {
         public string payCheck { get; set; }
@@ -233,7 +233,6 @@ namespace Aflevering2Recap
         {
             this.payCheck = payCheck;
         }
-
         public override void showInfo()
         {
             base.showInfo();
@@ -242,18 +241,6 @@ namespace Aflevering2Recap
         public void setPayCheck(string newPayCheck)
         {
             payCheck = newPayCheck;
-        }
-    }
-
-    public class Bank
-    {
-        public List<Customer> Customers;
-        public List<Employee> Employees;
-
-        public Bank()
-        {
-            Customers = new List<Customer>();
-            Employees = new List<Employee>();
         }
     }
 }
