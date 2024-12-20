@@ -1,14 +1,15 @@
 ﻿using System;
-// using static System.Console; er brugt her, så der ikke behøves at skrive Console.Write, etc.
 using static System.Console;
 namespace Aflevering2Recap
 {
     internal class Program // Emil Peter Lykke Lindquist
     {
-        // Her har jeg 2 lister, som skal bruges til at holde information om "Customer", og "Employee".
+        // Her har jeg 2 lister, som skal bruges til
+        // at holde information om "Customer", og "Employee".
         static List<Customer> Customers = new List<Customer>();
         static List<Employee> Employees = new List<Employee>();
-        // Her laver jeg en bool som bruges til at se om menu'en køre. Hvis den er true, kører menu'en.
+        // Her laver jeg en bool som bruges til at se om menu'en køre.
+        // Hvis den er true, kører menu'en.
         // Hvis ikke skal den lukkes.
         static bool menuRunning = true;
         static void Main(string[] args)
@@ -16,7 +17,8 @@ namespace Aflevering2Recap
             // Her kalder jeg min metode menu.
             menu();
         }
-        // Her har jeg lavet en menu metode, som håndtere alle de valg muligheder brugeren kan vælge.
+        // Her har jeg lavet en menu metode,
+        // som håndtere alle de valg muligheder brugeren kan vælge.
         static void menu()
         {
             // Jeg clear() her fordi så konsolen er rydet, og ser pænt ud.
@@ -35,7 +37,8 @@ namespace Aflevering2Recap
                     "Change Pay Check: 5", 
                     "Exit : q" 
                 };
-                // Her bruger jeg en foreach loop for at kalde alle de ting der er inde i min options array.
+                // Her bruger jeg en foreach loop for at kalde alle de ting der er
+                // inde i min options array.
                 foreach (string option in options)
                 {
                     WriteLine(option);
@@ -43,9 +46,10 @@ namespace Aflevering2Recap
                 // Her laver jeg en ReadLine for at kunne få bruger input
                 // som skal bruges senere til min switch case.
                 string optionInput = ReadLine()!;
-                // Her laver jeg en switch case som håndtere de valg muligheder som brugeren kan bruge.
+                // Her laver jeg en switch case som håndtere de valg muligheder
+                // som brugeren kan bruge.
                 // Hvis optionInput = 1, skal den gå hen til min case 1.
-                // Det bruges i stedet for if statements. Da det er mere håndtere bart at bruge
+                // Det bruges i stedet for if statements. 
                 // end at have en masse if statements, og skulle kigge igennem.
                 switch (optionInput)
                 {
@@ -71,7 +75,8 @@ namespace Aflevering2Recap
             }
         }
 
-        // Her har jeg lavet en "addCustomer" metode. Som håndtere at kunne tilføje "Customers".
+        // Her har jeg lavet en "addCustomer" metode.
+        // Som håndtere at kunne tilføje "Customers".
         static void addCustomer()
         {
             // Clear for at ryde konsolen.
@@ -84,7 +89,8 @@ namespace Aflevering2Recap
             Write("\nInput adress: ");
             string adress = ReadLine()!;
 
-            // Her kalder jeg objektet Customer. Hvor jeg har sat alle bruger inputtet ind i parameteren
+            // Her kalder jeg objektet Customer.
+            // Hvor jeg har sat alle bruger inputtet ind i parameteren
             // for at initialisere dem ind.
             Customer customer = new Customer(name, cpr, adress);
             // Her bruges så bank objektet. Jeg kalder "Customers" listen
@@ -95,7 +101,8 @@ namespace Aflevering2Recap
             ReadLine();
             menu();
         }
-        // Her har jeg en addEmployee metode. Den gør næsten det samme som addCustomer.
+        // Her har jeg en addEmployee metode.
+        // Den gør næsten det samme som addCustomer.
         // Men her putter jeg PayCheck ind i stedet for adresse.
         static void addEmployee()
         {
@@ -138,7 +145,8 @@ namespace Aflevering2Recap
             menu();
         }
 
-        // Her har jeg en setAdress metode. Som håndtere at kunne ændre en adresse, ved at vælge en person
+        // Her har jeg en setAdress metode.
+        // Som håndtere at kunne ændre en adresse, ved at vælge en person
         // ved at skrive deres cpr-nummer.
         static void setAdress()
         {
@@ -210,16 +218,19 @@ namespace Aflevering2Recap
         public string name { get; set; }
         public string cpr { get; set; }
 
-        // Her laver jeg en Person objekt. Som siger, at de 2 variabler som man kan sætte og ændre
+        // Her laver jeg en Person objekt.
+        // Som siger, at de 2 variabler som man kan sætte og ændre
         // som er i lig med Objektets parameter.
         public Person(string name, string cpr)
         {
-            // Der bruges this. for at sige at det er variablerne oppe over objektet vi har med at gøre.
+            // Der bruges this. for at sige at det er variablerne oppe over objektet
             this.name = name;
             this.cpr = cpr;
         }
-        // Her har jeg en showInfo metode. Den skriver navn og cpr-nummer pænt op.
-        // Den er sat til at være virtual, for at du kan override den senere til at kunne ændre i den.
+        // Her har jeg en showInfo metode.
+        // Den skriver navn og cpr-nummer pænt op.
+        // Den er sat til at være virtual,
+        // for at du kan override den senere til at kunne ændre i den.
         public virtual void showInfo()
         {
             WriteLine($"Name: {name}\nCPR-nr: {cpr}");
@@ -255,7 +266,6 @@ namespace Aflevering2Recap
         }
     }
     // Her har jeg en klasse som arver af Person også.
-    // Den er næsten ligesom Customer klassen, men i stedet for adresse, er det payCheck.
     public class Employee : Person
     {
         public string payCheck { get; set; }
