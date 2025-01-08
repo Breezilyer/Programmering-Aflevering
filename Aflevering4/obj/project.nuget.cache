@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "02KdJyPQfKE=",
+  "dgSpecHash": "B1daNyxsYDI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emilp\\.nuget\\packages\\winforms.datavisualization\\1.9.2\\winforms.datavisualization.1.9.2.nupkg.sha512"
+  ],
   "logs": []
 }

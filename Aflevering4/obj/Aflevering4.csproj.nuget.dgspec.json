@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj": {}
+    "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj": {
+    "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
+        "projectUniqueName": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
         "projectName": "Aflevering4",
-        "projectPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
+        "projectPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\Aflevering4.csproj",
         "packagesPath": "C:\\Users\\emilp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emilp\\OneDrive\\Desktop\\Programmering-Aflevering\\Aflevering4\\obj\\",
+        "outputPath": "C:\\Users\\emilp\\Desktop\\Programmering-Aflevering\\Aflevering4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emilp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.9.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

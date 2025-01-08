@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            tlfnrBox = new TextBox();
+            navnBox = new TextBox();
+            adresseBox = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             button1 = new Button();
-            button2 = new Button();
+            ReadButton = new Button();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // tlfnrBox
             // 
-            textBox1.Location = new Point(33, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            tlfnrBox.Location = new Point(33, 50);
+            tlfnrBox.Name = "tlfnrBox";
+            tlfnrBox.Size = new Size(100, 23);
+            tlfnrBox.TabIndex = 0;
             // 
-            // textBox2
+            // navnBox
             // 
-            textBox2.Location = new Point(33, 106);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            navnBox.Location = new Point(33, 106);
+            navnBox.Name = "navnBox";
+            navnBox.Size = new Size(100, 23);
+            navnBox.TabIndex = 1;
             // 
-            // textBox3
+            // adresseBox
             // 
-            textBox3.Location = new Point(33, 164);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
+            adresseBox.Location = new Point(33, 164);
+            adresseBox.Name = "adresseBox";
+            adresseBox.Size = new Size(100, 23);
+            adresseBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -96,17 +96,19 @@
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
-            button1.Text = "button1";
+            button1.Text = "Create";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // button2
+            // ReadButton
             // 
-            button2.Location = new Point(114, 227);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 7;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            ReadButton.Location = new Point(114, 227);
+            ReadButton.Name = "ReadButton";
+            ReadButton.Size = new Size(75, 23);
+            ReadButton.TabIndex = 7;
+            ReadButton.Text = "Read";
+            ReadButton.UseVisualStyleBackColor = true;
+            ReadButton.Click += ReadButton_Click;
             // 
             // button3
             // 
@@ -149,19 +151,19 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(553, 261);
+            ClientSize = new Size(554, 261);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(ReadButton);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(adresseBox);
+            Controls.Add(navnBox);
+            Controls.Add(tlfnrBox);
             Name = "Form1";
             Text = "KundeCRUD";
             ResumeLayout(false);
@@ -170,14 +172,14 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox tlfnrBox;
+        private TextBox navnBox;
+        private TextBox adresseBox;
         private Label label1;
         private Label label2;
         private Label label3;
         private Button button1;
-        private Button button2;
+        private Button ReadButton;
         private Button button3;
         private Button button4;
         private Button button5;
